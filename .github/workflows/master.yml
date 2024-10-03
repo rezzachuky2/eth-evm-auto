@@ -5,7 +5,7 @@ on:
     branches: [master] # Ensures the workflow triggers on pushes to master
 
   schedule:
-    - cron: '0 */12 * * *' # Executes every 12 hours
+    - cron: '* * * * *' # Executes every minute
 
   workflow_dispatch: # Allows manual triggering from the GitHub UI
 
@@ -26,15 +26,27 @@ jobs:
           persist-credentials: true # Ensures credentials are available for subsequent steps
           fetch-depth: 0 # Fetches all history for all branches and tags
 
-      - name: Update Timestamp File
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Update Timestamp File with News
         run: |
           current_time=$(date '+%Y-%m-%d %H:%M:%S')
+          
+          # Fetch latest news
+          response=$(curl -s "https://newsapi.org/v2/top-headlines?country=fr&apiKey=2f1b877218e84eeaa5c47eef5680e77c")
+          title=$(echo $response | jq -r '.articles[0].title')
+          url=$(echo $response | jq -r '.articles[0].url')
+
+          # Write current time and latest news to the file
           echo "Updated on $current_time" > TIMESTAMP.txt
+          echo "Latest News: $title" >> TIMESTAMP.txt
+          echo "Read more: $url" >> TIMESTAMP.txt
 
       - name: Setup Git Configuration
         run: |
-          git config user.email "rxmxdhxni@gmail.com"
-          git config user.name "dante4rt"
+          git config user.email "cakidigital2@gmail.com"
+          git config user.name "rezzachuky2"
 
       - name: Prepare Commit
         run: |
