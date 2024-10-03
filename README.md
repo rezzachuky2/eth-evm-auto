@@ -1,65 +1,54 @@
-# Automated-Commit
+# Ethereum Random Wallet Generator
 
-English | [简体中文](README-CN.md) 
+A Python script to generate random Ethereum wallet addresses. The user can specify the number of addresses to create, and the script will save them to `wallets.txt`. Ideal for testing, simulations, or any application that requires generating multiple Ethereum addresses.
 
-This repository contains a GitHub Actions workflow that automatically updates a file named `TIMESTAMP.txt` with the current date and time every 12 hours. This README provides a detailed overview of how the workflow operates and guides you through customizing and using it, especially if you're new to GitHub or GitHub Actions.
+## Features
 
-## Overview
+- **Dynamic Input**: Users can specify how many Ethereum wallet addresses to generate.
+- **Checksum Validation**: Ensures generated Ethereum addresses are correctly formatted to prevent errors.
+- **Automatic Saving**: Outputs all generated addresses to a text file (`wallets.txt`).
 
-The `Automated-Commit` workflow demonstrates the capabilities of GitHub Actions for automating routine tasks within a repository. Specifically, this workflow:
+## Requirements
 
-- Checks out the latest code from the `master` branch.
-- Updates the `TIMESTAMP.txt` file with the current date and time.
-- Commits the change to the repository if any modifications are detected.
-- Pushes the changes back to the `master` branch.
+- Python 3.x
+- `eth-utils` library
 
-## Workflow Structure
+## Installation
 
-The workflow is defined in the `.github/workflows/master.yml` file and includes:
+Clone the repository:
 
-- **Triggers**: Configured to run every 12 hours and can be manually triggered via the GitHub UI with the `workflow_dispatch` event.
-- **Jobs and Steps**: Contains a job `update_commit` that runs on the latest Ubuntu runner, performing tasks such as setting up Git, updating `TIMESTAMP.txt`, and committing and pushing changes.
-- **Permissions**: Granted write permissions to the repository contents.
+```bash
+git clone https://github.com/rezzachuky2/Auto-Generate-Random-Wallet-Address-ETH
+cd Auto-Generate-Random-Wallet-Address-ETH
+```
+Install the required Python library:
+```bash
+pip install eth-utils
+```
+Usage
+Run the Python script:
+```bash
+python bot.py
+```
+Input the number of addresses when prompted.
 
-## Using This Workflow
+Check the output file:
 
-### Creating Your Own Version
+The generated addresses will be saved in the random_wallets.txt file in the same directory.
 
-To create your own version of this repository and workflow:
+Example Output
+The random_wallets.txt file will contain Ethereum wallet addresses such as:
+```bash
+0x7a1f3b930d18b8fc1b8fba1744d9a93382e30ef0
+0x5f9d8830b6a5b88c29212e713aa52d8a1e3b12a1
+0x42a1e1f023ff58f627eb4f875ddf0a217d9937c8
+...
+```
+## Contact
+For questions or suggestions, please open an issue or contact me at cakidigital2@gmail.com.
 
-1. Click the "Use this template" button on the GitHub repository page.
-2. Choose a name for your new repository and select "Create repository from template".
-3. Clone your new repository to make further customizations locally.
-
-### Customizing the Workflow
-
-Before using the workflow, you'll need to customize it with your GitHub user email and name:
-
-1. Navigate to the `.github/workflows/master.yml` file in your repository.
-2. Edit the file, replacing `"rxmxdhxni@gmail.com"` with your email and `"dante4rt"` with your GitHub username in the `Setup Git Configuration` step.
-3. Commit your changes.
-
-### Viewing Workflow Runs
-
-To view the history of workflow runs:
-
-1. Navigate to the `Actions` tab of your repository.
-2. Select the `Automated-Commit` workflow to see details of each run.
-
-### Manually Triggering the Workflow
-
-You can manually trigger the workflow:
-
-1. Go to the `Actions` tab of your repository.
-2. Select the `Automated-Commit` workflow.
-3. Click `Run workflow`, select `master`, and click `Run workflow` again.
-
-## Contributing
-
-Contributions are welcome! Feel free to fork the repository, make your changes, and submit a pull request.
-
-## Support
-
-For issues or questions, please file an issue in the `Issues` section of the repository.
-
-Thank you for exploring the Automated-Commit workflow!
+## Donate Or Buy Me Coffe
+ EVM ADDRESS
+```bash
+0x61d8e97f68Feae22CA735E681C0DBD0ed17Fa2E8
+```
